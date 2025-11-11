@@ -1,34 +1,10 @@
-class StringBuilder {
-  #value;
-
-  constructor(initialValue) {
-    this.#value = initialValue;
-  }
-
-  getValue() {
-    return this.#value;
-  }
-
-  padEnd(str) {
-    this.#value += str;
-  }
-
-  padStart(str) {
-    this.#value = str + this.#value;
-  }
-
-  padBoth(str) {
-    this.padStart(str);
-    this.padEnd(str);
-  }
-}
-
-// Перевірка
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
+// Отримуємо посилання на елементи
+ const nameInput = document.querySelector("#name-input");
+ const nameOutput = document.querySelector("#name-output");
+// Додаємо слухачів подій input
+nameInput.addEventListener("input", () => {
+//Очищаємо введений текст від пробілів по краях
+const trimmedValue = nameInput.value.trim();
+//Якщо поле порожнє показуємо Anonymous
+nameOutput.textContent = trimmedValue === "" ? "Anonymous" : trimmedValue;
+});
